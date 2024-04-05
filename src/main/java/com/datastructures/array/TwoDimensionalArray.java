@@ -52,9 +52,9 @@ public class TwoDimensionalArray {
 
   // Searching a single value from the Array
   public void searchingValue(int value) {
-    for (int row=0; row<arr.length; row++){
-      for (int col=0; col<arr[0].length; col++) {
-        if (arr[row][col] == value) {
+    for (int row=0; row<arr.length; row++){ //O(M)
+      for (int col=0; col<arr[0].length; col++) {//O(N) ////O(MN)
+        if (arr[row][col] == value) {//O(1)
           System.out.println("Value is found at row: "+ row + " Col: " + col);
           return;
         }
