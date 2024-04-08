@@ -1,7 +1,9 @@
 package com.datastructures.doublelinkedlist;
 
 public class DLLTest {
-
+    DoublyNode head;
+    DoublyNode tail;
+    int size;
     public static void main(String[] args) {
         DLLTest test =new DLLTest();
         test.createDLL(1);
@@ -11,15 +13,53 @@ public class DLLTest {
         test.insertDLL(40,4);
         test.insertDLL(50,5);
         test.insertDLL(60,6);
-        System.out.println(test.head.value);
+        //System.out.println(test.head.value);
         test.traversalDLL();
-        test.reverseTraveseDLL();
-
+        //test.reverseTraveseDLL();
+       // test.searchNode(10);
+        test.deleteDLLFromBegining(10);
+        test.traversalDLL();
     }
 
-    DoublyNode head;
-    DoublyNode tail;
-    int size;
+    public void deleteDLLFromBegining(int location) {
+        if(head==null) {
+            System.out.println("DLL does not exist");
+            return;
+        }
+        else if(location==0){
+            if(size==1){
+                head =null;
+                tail=null;size--;
+                return;
+            }else{
+                head=head.next;
+                head.prev=null;
+                size--;
+            }
+        }else if(location>=size){
+        DoublyNode tempNode=tail.prev;
+            if(size==1){
+                head =null;
+                tail=null;size--;
+                return;
+            }else{
+                tempNode.next=null;
+                tail =tempNode;
+                size--;
+            }
+        }else{
+            DoublyNode tempNode=head;
+            for (int i = 0; i < location-1; i++) {
+                tempNode=tempNode.next;
+            }
+
+            tempNode.next=tempNode.next.next;
+            tempNode.next.prev=tempNode;
+        }
+    }
+
+
+
 
     public DoublyNode createDLL(int nodeValue) {
         head = new DoublyNode();
@@ -97,5 +137,19 @@ public class DLLTest {
            System.out.println("DLL Not exisr");
        }
         System.out.println("\n");
+    }
+    public void searchNode(int value) {
+        if(head!=null){
+            DoublyNode tempNode=head;
+            for (int i = 0; i < size; i++) {
+
+                   if(tempNode.value==value){
+                       System.out.print("The node found at location : "+i);
+                   }
+                    tempNode=tempNode.next;
+            }
+        }else {
+            System.out.println("DLL does not exist");
+        }
     }
 }
