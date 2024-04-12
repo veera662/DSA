@@ -10,6 +10,7 @@ public class BestScoreInArray {
         System.out.println(Arrays.toString(topTwoScores1));
     }
     public static int[] findTopTwoScores(int[] array){
+
         int firstHighest=0;
         int secondHighest=0;
         for (int score : array) {
