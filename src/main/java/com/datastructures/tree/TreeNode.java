@@ -21,7 +21,8 @@ public class TreeNode {
         ret="  ".repeat(level)+data+"\n";
 
         for(TreeNode node:this.children){
-            ret+=node.print(level+1)
+            ret+=node.print(level+1);
         }
+        return ret;
     }
 }
