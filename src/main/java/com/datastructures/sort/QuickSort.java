@@ -34,4 +34,10 @@ public class QuickSort {
 		}
 	}
 
+    public static void main(String[] args) {
+        QuickSort sort=new QuickSort();
+        int arry[]={10,3,2,7,7,5,8,4,1,2,9,7,8};
+        quickSort(arry,0,arry.length-1);
+        printArray(arry);
+    }
 }
