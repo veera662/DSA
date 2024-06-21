@@ -1,16 +1,16 @@
 package com.datastructures.queue;
 
-public class QueueArray {
+public class CircularQueue {
     public static void main(String[] args) {
-    QueueArray  queueArray=new QueueArray(3);
-    boolean result2=queueArray.isFull();
+        CircularQueue  queueArray=new CircularQueue(3);
+        boolean result2=queueArray.isFull();
         System.out.println(result2);
         boolean result1=queueArray.isEmpty();
         System.out.println("Is Empty : "+result1);
         queueArray.enQueue(1);
         queueArray.enQueue(2);
         queueArray.enQueue(3);
-        int result;
+       /* int result;
         result=queueArray.deQueue();
         System.out.println(result);
         result=queueArray.deQueue();
@@ -18,33 +18,36 @@ public class QueueArray {
 
         result=queueArray.peek();
         System.out.println(result);
-        queueArray.delete();
-
+        queueArray.delete();*/
     }
 
     int[] arr;
     int topOfQueue;
     int biginingOfQueue;
+    int size;
 
-    public QueueArray(int size){
+    public CircularQueue(int size){
         this.arr =new int[size];
         this.topOfQueue=-1;
         this.biginingOfQueue =-1;
+        this.size=size;
         System.out.println("this queue is successfull created with size : "+size);
     }
-    public boolean isFull(){
-        if(topOfQueue == arr.length-1){
+
+    public boolean isEmpty(){
+        if(topOfQueue==-1){
             return true;
         }
         else {
             return false;
         }
     }
-    public boolean isEmpty(){
-        if(biginingOfQueue ==-1 || biginingOfQueue== arr.length){
+    public boolean isFull(){
+        if(topOfQueue +1== biginingOfQueue){
             return true;
-        }
-        else {
+        } else if (biginingOfQueue==0 && topOfQueue+1 == size) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -55,38 +58,16 @@ public class QueueArray {
             biginingOfQueue=0;
             topOfQueue++;
             arr[topOfQueue]=value;
-            System.out.println("Sucessfully creates");
+            System.out.println("Sucessfully inserted in the queue : "+ value);
         }
         else{
-            topOfQueue++;
+            if(topOfQueue++ == size){
+                topOfQueue=0;
+            }else {
+                topOfQueue++;
+            }
             arr[topOfQueue]=value;
             System.out.println("Sucessfully creates");
         }
-    }
-    public int  deQueue(){
-       if(isEmpty()){
-
-            System.out.println("This queue is empty");
-            return -1;
-        }
-        else{
-            int result =arr[biginingOfQueue];
-            biginingOfQueue++;
-            if(biginingOfQueue>topOfQueue){
-                biginingOfQueue =topOfQueue=-1;
-            }
-            System.out.println("Sucessfully creates");
-            return result;
-        }
-    }
-    public int peek(){
-        if (!isEmpty()) {
-            return arr[biginingOfQueue];
-        }
-        return -1;
-    }
-    public void delete(){
-        arr =null;
-        System.out.println("Deleted");
     }
 }

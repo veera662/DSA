@@ -12,12 +12,12 @@ package com.datastructures.stack;
 
   // isEmpty
   public boolean isEmpty() {
-    if (topOfStack == -1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+         if (topOfStack == -1) {
+             return true;
+         } else {
+             return false;
+         }
+     }
 
   // isFull
 
