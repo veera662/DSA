@@ -4,12 +4,13 @@ import java.util.Arrays;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
-        int[] array={1, 1, 2, 2, 3, 4, 5};
-        int[] withOutDuplicate = removeDuplicates(array);
-        System.out.println(Arrays.toString(withOutDuplicate));
+        //int[] array={1, 1, 2, 2, 3, 4, 5};
+        int[] array={1, 1};
+        int withOutDuplicate = removeDuplicates(array);
+        System.out.println(withOutDuplicate);
         // Output : [1, 2, 3, 4, 5]
     }
-    public static int[] removeDuplicates(int[] arr) {
+    public static int removeDuplicates(int[] arr) {
 
         int[] withoutDuplicate=new int[arr.length];
         int index=0;
@@ -29,7 +30,7 @@ public class RemoveDuplicates {
             }
 
         }
-        return Arrays.copyOf(withoutDuplicate,index);
+        return Arrays.copyOf(withoutDuplicate,index).length;
     }
 
 }
