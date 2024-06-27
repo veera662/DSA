@@ -1,4 +1,4 @@
-package com.datastructures.array.pc;
+package com.datastructures.pc;
 
 public class StringBuilderTest{
     public static void main(String[] args) {

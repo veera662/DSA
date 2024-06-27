@@ -35,4 +35,6 @@ public class LongestPalindormicSubsequence {
         System.out.printf("The length of the LPS is %d",
                 lps(seq.toCharArray(), 0, n - 1));
     }
+
+
 }
